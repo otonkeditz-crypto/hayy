@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Interaktif - Bayu Dimas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body { font-family: 'Chakra Petch', sans-serif; color: #E0E0E0; overflow-x: hidden; background-color: #0D1117; }
+        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        .card { background: rgba(17, 24, 39, 0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(0, 255, 255, 0.2); }
+        .gradient-text { background: linear-gradient(90deg, #00FFFF, #FF00FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="bg-gray-900">
+    <canvas id="bg-canvas"></canvas>
+    <div class="relative min-h-screen w-full flex items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div class="w-full max-w-4xl mx-auto">
+            <header class="text-center mb-12">
+                <h1 class="text-5xl md:text-7xl font-black text-white tracking-widest">BAYU DIMAS</h1>
+                <p class="text-xl md:text-2xl font-light gradient-text mt-2">Full-Stack Developer & Cyber Security Enthusiast</p>
+            </header>
+            <main class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex flex-col gap-6">
+                    <div class="card rounded-lg p-6">
+                        <h2 class="text-2xl font-bold text-cyan-400 mb-4 border-b border-cyan-400/30 pb-2">SYSTEM_INFO</h2>
+                        <ul class="space-y-3 text-sm">
+                            <li><strong>ID_NAME:</strong> Bayu Dimas</li>
+                            <li><strong>STATUS:</strong> Student_Active</li>
+                            <li><strong>LOCATION:</strong> Indonesia</li>
+                            <li><strong>AVAILABILITY:</strong> Ready_for_Projects</li>
+                        </ul>
+                    </div>
+                    <div class="card rounded-lg p-6">
+                        <h2 class="text-2xl font-bold text-cyan-400 mb-4 border-b border-cyan-400/30 pb-2">EDUCATION_LOG</h2>
+                        <ul class="space-y-4">
+                            <li>
+                                <h3 class="font-bold text-white">Universitas Muhammadiyah Purwokerto</h3>
+                                <p class="text-sm text-lime-400">2024 - Sekarang • Active</p>
+                            </li>
+                            <li>
+                                <h3 class="font-bold text-white">SMK Mitra Karya Mandiri</h3>
+                                <p class="text-sm text-cyan-400">2022 - 2024 • Completed</p>
+                            </li>
+                            <li>
+                                <h3 class="font-bold text-white">SMPN 3 Losari</h3>
+                                <p class="text-sm text-cyan-400">2019 - 2022 • Completed</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-6">
+                    <div class="card rounded-lg p-6">
+                        <h2 class="text-2xl font-bold text-cyan-400 mb-4 border-b border-cyan-400/30 pb-2">SKILL_MATRIX</h2>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="flex items-center bg-gray-800 text-white text-sm font-medium pl-2 pr-3 py-1 rounded border border-gray-700">JavaScript</span>
+                            <span class="flex items-center bg-gray-800 text-white text-sm font-medium pl-2 pr-3 py-1 rounded border border-gray-700">React</span>
+                            <span class="flex items-center bg-gray-800 text-white text-sm font-medium pl-2 pr-3 py-1 rounded border border-gray-700">MySQL</span>
+                            <span class="flex items-center bg-gray-800 text-white text-sm font-medium pl-2 pr-3 py-1 rounded border border-gray-700">PHP</span>
+                            <span class="flex items-center bg-gray-800 text-white text-sm font-medium pl-2 pr-3 py-1 rounded border border-gray-700">NodeJS</span>
+                            <span class="flex items-center bg-gray-800 text-white text-sm font-medium pl-2 pr-3 py-1 rounded border border-gray-700">Python</span>
+                        </div>
+                    </div>
+                    <div class="card rounded-lg p-6">
+                        <h2 class="text-2xl font-bold text-cyan-400 mb-4 border-b border-cyan-400/30 pb-2">FIELD_EXP</h2>
+                        <div>
+                            <h3 class="font-bold text-white">Cyber Security Class Participant</h3>
+                            <a href="https://indobelati.asia" target="_blank" rel="noopener noreferrer" class="text-sm text-magenta-500 mb-2 hover:text-lime-400 transition-colors duration-300 inline-flex items-center">
+                                Indobelati Asia
+                                <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#bg-canvas'), alpha: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.position.setZ(5);
+        const geometry = new THREE.TorusKnotGeometry(2, 0.3, 100, 16);
+        const material = new THREE.PointsMaterial({ size: 0.015, color: 0xFF00FF });
+        const knot = new THREE.Points(geometry, material);
+        scene.add(knot);
+        const geometry2 = new THREE.IcosahedronGeometry(4, 0);
+        const material2 = new THREE.PointsMaterial({ size: 0.01, color: 0x00FFFF });
+        const sphere = new THREE.Points(geometry2, material2);
+        scene.add(sphere);
+        let mouseX = 0, mouseY = 0;
+        document.addEventListener('mousemove', (e) => { mouseX = (e.clientX - window.innerWidth / 2) / 100; mouseY = (e.clientY - window.innerHeight / 2) / 100; });
+        function animate() {
+            requestAnimationFrame(animate);
+            knot.rotation.x += 0.001; knot.rotation.y += 0.002; sphere.rotation.y -= 0.0005;
+            camera.position.x += (mouseX - camera.position.x) * 0.05;
+            camera.position.y += (-mouseY - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+            renderer.render(scene, camera);
+        }
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+        animate();
+    </script>
+</body>
+</html>
